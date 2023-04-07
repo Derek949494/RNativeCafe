@@ -1,26 +1,25 @@
 import { useState } from 'react';
 import { FlatList } from 'react-native';
 import { Avatar, ListItem } from 'react-native-elements';
-import { CAMPSITES } from '../shared/campsites';
+import { LOCATIONS } from '../shared/locations';
 import * as Animatable from 'react-native-animatable';
 
-
 const DirectoryScreen = ({ navigation }) => {
-    const [campsites, setCampsites] = useState(CAMPSITES);
+    const [locations, setLocations] = useState(LOCATIONS);
 
-    const renderDirectoryItem = ({ item: campsite }) => { //location
+    const renderDirectoryItem = ({ item: location }) => { 
         return (
             <Animatable.View animation='fadeInRightBig' duration={2000}>
             <ListItem
                 onPress={() =>
-                    navigation.navigate('CampsiteInfo', { campsite }) //location
+                    navigation.navigate('LocationInfo', { location }) 
                 }
             >
-                <Avatar source={campsite.image} rounded /> 
+                <Avatar source={location.image} rounded /> 
                 <ListItem.Content>
-                    <ListItem.Title>{campsite.name}</ListItem.Title> 
+                    <ListItem.Title>{location.name}</ListItem.Title> 
                     <ListItem.Subtitle>
-                        {campsite.description} 
+                        {location.description} 
                     </ListItem.Subtitle>
                 </ListItem.Content>
             </ListItem>
@@ -29,7 +28,7 @@ const DirectoryScreen = ({ navigation }) => {
     };
     return (
         <FlatList
-            data={campsites} //location
+            data={locations} 
             renderItem={renderDirectoryItem}
             keyExtractor={(item) => item.id.toString()}
         />

@@ -1,6 +1,6 @@
 import { Platform, View, StyleSheet } from 'react-native';
 import Constants from 'expo-constants';
-import CampsiteInfoScreen from './CampsiteInfoScreen';
+import LocationInfoScreen from './LocationInfoScreen';
 import DirectoryScreen from './DirectoryScreen';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
@@ -93,7 +93,7 @@ const DirectoryNavigator = () => {
                 name='Directory'
                 component={DirectoryScreen}
                 options={({ navigation }) => ({
-                    title: 'Campsite Directory',
+                    title: 'Location Directory',
                     headerLeft: () => (
                         <Icon
                             name='list'
@@ -105,10 +105,10 @@ const DirectoryNavigator = () => {
                 })}
             />
             <Stack.Screen
-                name='CampsiteInfo'
-                component={CampsiteInfoScreen}
+                name='LocationInfo'
+                component={LocationInfoScreen}
                 options={({ route }) => ({
-                    title: route.params.campsite.name
+                    title: route.params.location.name
                 })}
             />
         </Stack.Navigator>
@@ -147,7 +147,7 @@ const Main = () => {
                     name='Directory'
                     component={DirectoryNavigator}
                     options={{
-                        title: 'Campsite Directory',
+                        title: 'Location Directory',
                         drawerIcon: ({ color }) => (
                             <Icon
                                 name='list'

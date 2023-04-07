@@ -1,5 +1,4 @@
-// will go in later and update to be LOCATIONS instead of CAMPSITES
-export const CAMPSITES = [
+export const LOCATIONS = [
     {
         id: 0,
         name: "Derek's Cafe 1",
